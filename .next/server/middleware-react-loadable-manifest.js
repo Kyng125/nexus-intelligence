@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app\\\\nexus\\\\components\\\\hero\\\\HeroSection.jsx -> ./OrbCanvas\":{\"id\":\"app\\\\nexus\\\\components\\\\hero\\\\HeroSection.jsx -> ./OrbCanvas\",\"files\":[\"static/chunks/_app-pages-browser_app_nexus_components_hero_OrbCanvas_jsx.js\"]}}"
