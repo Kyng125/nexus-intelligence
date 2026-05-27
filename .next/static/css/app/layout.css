@@ -1,0 +1,128 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+/* ══════════════════════════════════════════════════
+   NEXUS // GLOBAL CSS
+   WHY IS THIS HERE? 
+   This file only contains: CSS custom properties (design tokens),
+   global resets, and scrollbar styles. Component-specific styles 
+   live in their own CSS Modules. This is the "foundation layer" —
+   the stuff everything else inherits.
+══════════════════════════════════════════════════ */
+
+:root {
+  /* ── Color Tokens ── */
+  --bg: #060816;
+  --bg2: #0D1326;
+  --bg-card: rgba(13, 19, 38, 0.65);
+  --accent: #5B8CFF;
+  --neon: #00F0FF;
+  --purple: #9D4EDD;
+  --soft: #C7D2FE;
+  --muted: #6B7280;
+  --green: #22C55E;
+  --red: #F43F5E;
+  --amber: #FBB224;
+  --border: rgba(199, 210, 254, 0.07);
+  --border-hover: rgba(199, 210, 254, 0.16);
+
+  /* ── Typography Tokens ──
+     The font variables are injected by Next.js font system via RootLayout.
+     We declare fallbacks here but next/font overrides them. */
+  --font-head: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* ── Motion Tokens ── */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io: cubic-bezier(0.45, 0, 0.55, 1);
+
+  /* ── Layout Tokens ── */
+  --nav-h: 64px;
+}
+
+/* ── Reset ──
+   WHY: Browser defaults are inconsistent. Box-sizing border-box 
+   makes width/height behave intuitively (padding included). */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--soft);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb {
+  background: rgba(91, 140, 255, 0.3);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(91, 140, 255, 0.6); }
+
+/* ── Shared Keyframe Animations ──
+   WHY HERE NOT IN MODULES?
+   Keyframes cannot be scoped to a CSS module because CSS Modules hash
+   class names but not @keyframe names. Animations referenced by name
+   across multiple components must live in global scope. */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-11px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+@keyframes ndot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--neon); }
+  50%       { opacity: 0.3; box-shadow: 0 0 4px var(--neon); }
+}
+@keyframes gradSh {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+@keyframes glowBreath {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  50%       { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+}
+@keyframes scrollDrop {
+  0%   { top: -100%; }
+  100% { top: 200%; }
+}
+@keyframes aFloat {
+  0%   { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  25%  { transform: translate(36px, -24px) scale(1.07); opacity: 1; }
+  50%  { transform: translate(-16px, 18px) scale(0.95); opacity: 0.8; }
+  75%  { transform: translate(26px, 8px) scale(1.03); opacity: 1; }
+  100% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+}
+@keyframes btnRP {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50%       { transform: scale(1.04); opacity: 0; }
+}
+
